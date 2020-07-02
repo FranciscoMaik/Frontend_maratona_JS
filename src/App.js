@@ -1,25 +1,32 @@
 import React from "react";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
+import SignIn from "./screens/Signin";
+import SignUp from "./screens/Signup";
+import ManageLinks from "./screens/Manage/Links";
+import ManageLinksCreate from "./screens/Manage/Links/Create";
+import ManageLinkEdit from "./screens/Manage/Links/Edit";
+import Home from "./screens/Home";
+
 const App = () => {
   return (
     <BrowserRouter>
       <div>
         <nav>
-          <ul>
-            <li>
+          <ul className="list-group list-group-horizontal">
+            <li className="list-group-item">
               <Link to="/sign-in">Sign in</Link>
             </li>
-            <li>
+            <li className="list-group-item">
               <Link to="/sign-up">Sign up</Link>
             </li>
-            <li>
+            <li className="list-group-item">
               <Link to="/manage/links/create">Create Link</Link>
             </li>
-            <li>
+            <li className="list-group-item">
               <Link to="/manage/links/edit">Edit Link</Link>
             </li>
-            <li>
+            <li className="list-group-item">
               <Link to="/manage/links">Links</Link>
             </li>
           </ul>
@@ -27,22 +34,22 @@ const App = () => {
 
         <Switch>
           <Route path="/sign-in">
-            <h1>Sign in</h1>
+            <SignIn />
           </Route>
           <Route path="/sign-up">
-            <h1>Sign up</h1>
+            <SignUp />
           </Route>
           <Route path="/manage/links/create">
-            <h1>Create Link</h1>
+            <ManageLinksCreate />
           </Route>
           <Route path="/manage/links/edit">
-            <h1>Edit Link</h1>
+            <ManageLinkEdit />
           </Route>
           <Route path="/manage/links">
-            <h1>Links</h1>
+            <ManageLinks />
           </Route>
           <Route path="/">
-            <h1>Home Page</h1>
+            <Home />
           </Route>
         </Switch>
       </div>

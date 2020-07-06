@@ -1,0 +1,15 @@
+import { SIGN_UP } from "./SigupActions";
+
+const initialState = {
+  account: null,
+};
+
+export default function (state = initialState, action) {
+  const { type, payload } = action;
+  switch (type) {
+    case SIGN_UP:
+      return { ...initialState, account: { ...payload, sucess: true } };
+    default:
+      return state;
+  }
+}

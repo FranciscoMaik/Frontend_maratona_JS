@@ -30,6 +30,10 @@ export const getToken = () => {
   getCookie(COOKIE_TOKEN);
 };
 
+export const removeToken = () => {
+  removeCookie(COOKIE_TOKEN);
+};
+
 // Cookies para  o Refresh Token
 export const setRefreshToken = (refreshToken) => {
   setCookie(COOKIE_REFRESH_TOKEN, refreshToken, options);
@@ -37,4 +41,8 @@ export const setRefreshToken = (refreshToken) => {
 
 export const getRefreshToken = () => {
   getCookie(COOKIE_REFRESH_TOKEN);
+};
+
+export const removeRefreshToken = () => {
+  removeCookie(COOKIE_REFRESH_TOKEN);
 };

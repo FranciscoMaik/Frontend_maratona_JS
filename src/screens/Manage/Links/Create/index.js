@@ -1,22 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import Layout from "../../../Layout/Manage";
+import { getFormData } from "../../../../helpers/form";
+import { linkCreate } from "../../../../actions/LinkActions";
 
-// import { Container } from './styles';
+const Create = ({ link, linkCreate }) => {
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const data = getFormData(e);
+    linkCreate(data);
+  };
 
-const Create = () => {
+  if (link) {
+    return <Redirect to="/manage/links" />;
+  }
+  console.log("*** Create.link", link);
   return (
     <Layout>
       <h1>Create Link</h1>
       <div>
-        <form>
+        <form onSubmit={submitHandler}>
           <div className="form-group">
             <label>Label</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" name="label" />
           </div>
           <div className="form-group">
             <label>Url</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" name="url" />
           </div>
           <div className="form-group form-check">
             <label className="form-check-label">
@@ -34,4 +45,8 @@ const Create = () => {
   );
 };
 
-export default Create;
+const mapStateToProps = (state) => {
+  return { link: state.link.link };
+};
+
+export default connect(mapStateToProps, { linkCreate })(Create);

@@ -14,7 +14,7 @@ export const setAccount = (account) => {
 };
 
 export const getAccount = () => {
-  getCookie(COOKIE_ACCOUNT);
+  getCookie(COOKIE_ACCOUNT); // Pode precisar de um retorno futuro
 };
 
 export const removeAccount = () => {
@@ -27,7 +27,7 @@ export const setToken = (token) => {
 };
 
 export const getToken = () => {
-  getCookie(COOKIE_TOKEN);
+  return getCookie(COOKIE_TOKEN);
 };
 
 export const removeToken = () => {
@@ -40,7 +40,7 @@ export const setRefreshToken = (refreshToken) => {
 };
 
 export const getRefreshToken = () => {
-  getCookie(COOKIE_REFRESH_TOKEN);
+  return getCookie(COOKIE_REFRESH_TOKEN);
 };
 
 export const removeRefreshToken = () => {

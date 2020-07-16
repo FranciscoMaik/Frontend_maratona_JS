@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { signOut, signIn } from "../../../actions/AccountActions";
+import { signOut } from "../../../actions/AccountActions";
 import { Redirect } from "react-router-dom";
 
 const Layout = ({ children, signOut, account }) => {

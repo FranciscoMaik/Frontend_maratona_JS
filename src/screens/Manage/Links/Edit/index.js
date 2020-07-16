@@ -1,8 +1,6 @@
 import React from "react";
 import Layout from "../../../Layout/Manage";
 
-// import { Container } from './styles';
-
 const Edit = () => {
   return (
     <Layout>

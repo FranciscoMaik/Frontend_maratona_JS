@@ -14,7 +14,7 @@ export const setAccount = (account) => {
 };
 
 export const getAccount = () => {
-  getCookie(COOKIE_ACCOUNT); // Pode precisar de um retorno futuro
+  return getCookie(COOKIE_ACCOUNT);
 };
 
 export const removeAccount = () => {

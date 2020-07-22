@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 import SignIn from "./screens/Signin";
@@ -8,7 +9,12 @@ import ManageLinksCreate from "./screens/Manage/Links/Create";
 import ManageLinkEdit from "./screens/Manage/Links/Edit";
 import Home from "./screens/Home";
 
-const App = () => {
+import { initAccount } from "./actions/AccountActions";
+
+const App = ({ initAccount }) => {
+  useEffect(() => {
+    initAccount();
+  }, [initAccount]);
   return (
     <BrowserRouter>
       <div>
@@ -57,4 +63,8 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return { account: state.account.account };
+};
+
+export default connect(mapStateToProps, { initAccount })(App);

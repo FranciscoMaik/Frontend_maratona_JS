@@ -15,7 +15,6 @@ const Create = ({ link, linkCreate }) => {
   if (link) {
     return <Redirect to="/manage/links" />;
   }
-  console.log("*** Create.link", link);
   return (
     <Layout>
       <h1>Create Link</h1>

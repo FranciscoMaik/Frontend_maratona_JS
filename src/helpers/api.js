@@ -32,6 +32,15 @@ export const apiPut = (path, data = {}) => {
   return axios.put(url, data, options);
 };
 
+export const apiDelete = (path, data = {}) => {
+  const url = getApiUrl(path);
+  const options = {
+    headers: getHeaders(),
+  };
+
+  return axios.delete(url, options);
+};
+
 export const apiGet = (path) => {
   const url = getApiUrl(path);
   const options = {
